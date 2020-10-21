@@ -5,8 +5,6 @@ const newQuoteButton = document.getElementById("new-quote");
 const twitterButton = document.getElementById("twitter");
 const loader = document.getElementById("loader");
 
-var counter = 0;
-
 function showLoadingSpinner() {
     loader.hidden = false;
     quoteContainer.hidden = true;
@@ -40,10 +38,7 @@ async function getQuote(){
         quoteText.textContent = data.quoteText;
         removeLoadingSpinner();
     } catch(error) {
-        if (counter <= 10) {
-            getQuote();
-            alert("There is some issue, please reload!")
-        }
+        getQuote();
         console.log(error);
     }
 }
